@@ -15,6 +15,29 @@
     <a class="btn btn-success" href="cadastrar.php">Nova vaga</a>
   </section>
   <section>
+    <form method="GET">
+      <div class="row my-4">
+        <div class="col">
+          <label>Buscar por título</label>
+          <input type="text" name="busca" class="form-control" value="<?= $busca ?>">
+        </div>
+        <div class="col">
+          <label>Status</label>
+          <select name="status" class="form-control">
+            <option value="">Ativa/Inativa</option>
+            <option value="s" <?= $status === "s" ? "selected" : "" ?>>Ativa</option>
+            <option value="n" <?= $status === "n" ? "selected" : "" ?>>Inativa</option>
+          </select>
+        </div>
+        <div class="col d-flex align-items-end">
+          <button type="submit" class="btn btn-primary">
+            Filtrar
+          </button>
+        </div>
+      </div>
+    </form>
+  </section>
+  <section>
     <?php if (count($vagas) > 0) { ?>
       <table class="table bg-light mt-3">
         <thead>
