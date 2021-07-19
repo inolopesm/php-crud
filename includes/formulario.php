@@ -16,11 +16,11 @@
       <label>Status</label>
       <div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="ativo" value="s" <?= isset($vaga) ? ($vaga->ativo == "s" ? "checked" : "") : "" ?> />
+          <input class="form-check-input" type="radio" name="ativo" value="s" required <?= isset($vaga) ? ($vaga->ativo == "s" ? "checked" : "") : "" ?> />
           <label class="form-check-label">Ativo</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="ativo" value="n" <?= isset($vaga) ? ($vaga->ativo == "n" ? "checked" : "") : "" ?> />
+          <input class="form-check-input" type="radio" name="ativo" value="n" required <?= isset($vaga) ? ($vaga->ativo == "n" ? "checked" : "") : "" ?> />
           <label class="form-check-label">Inativo</label>
         </div>
       </div>
