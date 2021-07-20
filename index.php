@@ -3,6 +3,7 @@
 include __DIR__ . "/vendor/autoload.php";
 
 use \App\Entity\Vaga;
+use \App\Db\Pagination;
 
 $busca = filter_input(INPUT_GET, "busca", FILTER_SANITIZE_STRING);
 $status = filter_input(INPUT_GET, "status", FILTER_SANITIZE_STRING);
@@ -21,7 +22,11 @@ $condicoes = array_filter($condicoes);
 
 $where = implode(" and ", $condicoes);
 
-$vagas = Vaga::getVagas($where);
+$quantidadeVagas = Vaga::getQuantidadeVagas($where);
+
+$pagination = new Pagination($quantidadeVagas, $_GET["pagina"] ?? 1, 10);
+
+$vagas = Vaga::getVagas($where, null, $pagination->getLimit());
 
 include __DIR__ . "/includes/header.php";
 include __DIR__ . "/includes/listagem.php";

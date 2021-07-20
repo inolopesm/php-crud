@@ -38,7 +38,7 @@
     </form>
   </section>
   <section>
-    <?php if (count($vagas) > 0) { ?>
+    <?php if(count($vagas) > 0) { ?>
       <table class="table bg-light mt-3">
         <thead>
           <tr>
@@ -68,6 +68,16 @@
       </table>
     <?php } else { ?>
       <p class="text-center">Nenhuma vaga encontrada</p>
+    <?php } ?>
+  </section>
+  <section>
+    <?php unset($_GET["status"]); ?>
+    <?php unset($_GET["pagina"]); ?>
+
+    <?php foreach($pagination->getPages() as $key => $pagina) { ?>
+      <a class="btn btn-light" href="?pagina=<?= $pagina["pagina"] ?>&<?= http_build_query($_GET) ?>">
+        <?= $pagina["pagina"] ?>
+      </a>
     <?php } ?>
   </section>
 </main>
